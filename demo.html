@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Element</title>
+</head>
+<body>
+
+
+<script src="dist/create.element-1.1.js"></script>
+<script>
+
+
+    new createElement({
+        element: 'h1',
+        text: 'You can create HTML element easily with IDs or Class and parent as well'
+    });
+    new createElement({
+        element: 'div',
+        id: 'parent',
+        text: 'Div with ID'
+    });
+    new createElement({
+        element: 'div',
+        class: 'child',
+        text: 'Child',
+        parent: '#parent'
+    });
+    new createElement({
+        element: 'span',
+        class: 'child',
+        text: 'Child',
+        parent: '#parent'
+    });
+
+</script>
+
+</body>
+</html>
