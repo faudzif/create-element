@@ -1,7 +1,7 @@
-Form validation made easy Create html elements easily using javascript only
+Create html elements easily using javascript only
 ================================
 
-# create-element
+
 You can create HTML element easily with IDs, Class or both and define parent as well if already exist
 
 ## Getting Started
