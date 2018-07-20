@@ -1,3 +1,6 @@
+Form validation made easy Create html elements easily using javascript only
+================================
+
 # create-element
 You can create HTML element easily with IDs, Class or both and define parent as well if already exist
 
@@ -16,7 +19,7 @@ Include jQuery and the plugin on a page. Then select a form to validate and call
 </script>
 ```
 
-You can use these properties
+## You can use these properties
 
 ``` js
 new createElement({
