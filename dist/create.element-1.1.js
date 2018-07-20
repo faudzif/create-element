@@ -26,9 +26,13 @@
                 var textNode = document.createTextNode(options.text);
                 element.appendChild(textNode);
             }
+            if (options.hasOwnProperty('attr')) {
+                element.setAttribute(options.attr[0], options.attr[1]);
+            }
             if (options.hasOwnProperty('parent')) {
                 addElementIntoParent(options, element);
-            } else {
+            }
+            else {
                 document.body.appendChild(element);
             }
         } else {
