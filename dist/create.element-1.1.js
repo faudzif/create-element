@@ -11,33 +11,39 @@
             console.log('Please create element\'s property');
         }
     };
+
     function elementOptions(options) {
         if (options.hasOwnProperty('element')) {
-            var element = document.createElement(options.element);
-            if (options.hasOwnProperty('id')) {
-                element.setAttribute('id', options.id);
-            }
-            if (options.hasOwnProperty('class')) {
-                element.setAttribute('class', options.class);
-            }
-            if (options.hasOwnProperty('text')) {
-                var textNode = document.createTextNode(options.text);
-                element.appendChild(textNode);
-            }
-            if (options.hasOwnProperty('attr')) {
-                setAttributes(element, options.attr);
-            }
-            if (options.hasOwnProperty('parent')) {
-                addElementIntoParent(options, element);
-            }
-            else {
-                document.body.appendChild(element);
+            if (options.element !== '') {
+                var element = document.createElement(options.element);
+                if (options.hasOwnProperty('id')) {
+                    element.setAttribute('id', options.id);
+                }
+                if (options.hasOwnProperty('class')) {
+                    element.setAttribute('class', options.class);
+                }
+                if (options.hasOwnProperty('text')) {
+                    var textNode = document.createTextNode(options.text);
+                    element.appendChild(textNode);
+                }
+                if (options.hasOwnProperty('attr')) {
+                    setAttributes(element, options.attr);
+                }
+                if (options.hasOwnProperty('events')) {
+                    addEventsOnElement(element, options.events)
+                }
+                if (options.hasOwnProperty('parent')) {
+                    addElementIntoParent(element, options);
+                } else {
+                    document.body.appendChild(element);
+                }
             }
         } else {
             console.log('Create element tag at lest');
         }
     }
-    function addElementIntoParent(options, element) {
+
+    function addElementIntoParent(element, options) {
         if (parentCharacterCheck(options.parent)) {
             console.log(true + ' : ' + options.parent);
             parentElem = document.getElementsByTagName(options.parent)[0];
@@ -55,13 +61,22 @@
             }
         }
     }
+
     function parentCharacterCheck(string) {
         var re = new RegExp('^[a-zA-Z0-9]');
         return re.test(string)
     }
+
     function setAttributes(elem, attr) {
         for (var key in attr) {
             elem.setAttribute(key, attr[key]);
         }
+    }
+
+    function addEventsOnElement(elem, e) {
+        elem.addEventListener(Object.keys(e)[0], function () {
+            var x = Object.values(e)[0];
+            x();
+        }, false);
     }
 }());

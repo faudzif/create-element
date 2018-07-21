@@ -7,11 +7,7 @@
 <body>
 <script src="dist/create.element-1.1.js"></script>
 <script>
-    new createElement({
-        element: 'h1',
-        text: 'You can create HTML element easily with IDs or Class and parent as well'
-    });
-    new createElement({
+    /*new createElement({
         element: 'div',
         id: 'parent',
         text: 'Div with ID'
@@ -27,17 +23,25 @@
         class: 'child',
         text: 'Child',
         parent: '#parent'
-    });
+    });*/
     new createElement({
         element: 'a',
         class: 'link',
         text: 'click here',
-        attr: {
+        /*attr: {
             href: 'http://www.google.com',
             target: '_blank',
             title: 'This is link'
+        },*/
+        events: {
+            click: clickMe
         }
     });
+    
+    function clickMe() {
+      console.log('click me :)');
+    }
+    
 </script>
 </body>
 </html>
