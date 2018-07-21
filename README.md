@@ -23,11 +23,12 @@ Include jQuery and the plugin on a page. Then select a form to validate and call
 
 ``` js
 new createElement({
-        element: 'div', // Create element tag
-        id: 'parent', // Define ID name
-        class: 'parent', // Define class name
-        text: 'Div with ID' // Define text
+        element: 'div', // Create element tag || <div></div>
+        id: 'parent', // Define ID name || <div id="parent"></div>
+        class: 'parent', // Define class name || <div id="parent" class="parent"></div>
+        text: 'Your text will be here' // Define text || <div id="parent" class="parent"> Your text will be here </div>
         parent: .parent // Define parent if it is exist and provide parent ID or Class with selector name
+        attr: ['key', 'value'] // Define attributes with key and value
     });
 ```
 
