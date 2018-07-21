@@ -28,7 +28,9 @@ new createElement({
         class: 'parent', // Define class name || <div id="parent" class="parent"></div>
         text: 'Your text will be here' // Define text || <div id="parent" class="parent"> Your text will be here </div>
         parent: .parent // Define parent if it is exist and provide parent ID or Class with selector name
-        attr: ['key', 'value'] // Define attributes with key and value
+        attr: {
+            title: 'Your title will be here' // Define attributes with key and value
+        }
     });
 ```
 
