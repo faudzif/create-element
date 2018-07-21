@@ -1,6 +1,6 @@
 /*!
  * Create Element Plugin v1.0.0
- * https://github.com/faudzif
+ * https://github.com/faudzif/create-element
  * Copyright (c) 2018 Faudzif
  */
 
