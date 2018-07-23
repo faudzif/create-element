@@ -3,6 +3,7 @@
  * https://github.com/faudzif/create-element
  * Copyright (c) 2018 Faudzif
  */
+
 (function () {
     this.createElement = function () {
         if (arguments[0] && typeof arguments[0] === 'object') {
