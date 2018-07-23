@@ -1,0 +1,25 @@
+{
+  "name": "create-element",
+  "version": "1.0.0",
+  "description": "Create html elements easily using javascript only\r ================================",
+  "main": "Gruntfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/faudzif/create-element.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/faudzif/create-element/issues"
+  },
+  "homepage": "https://github.com/faudzif/create-element#readme",
+  "dependencies": {
+    "grunt": "^1.0.3"
+  },
+  "devDependencies": {
+    "grunt-browser-sync": "^2.2.0"
+  }
+}
