@@ -23,7 +23,7 @@ Include the script plugin on a page. Then call the `createElement` method.
 
 ``` js
 new createElement({
-        element: 'div', // Create element tag || <div></div>
+        element: 'a', // Create element tag || <div></div>
         id: 'id-name', // Define ID name || <div id="id-name"></div>
         class: 'lass-name', // Define class name || <div class="class-name"></div>
         text: 'Your text will be here' // Define your text here || <div id="parent" class="parent"> Your text will be here </div>
