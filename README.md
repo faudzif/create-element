@@ -23,13 +23,13 @@ Include the script plugin on a page. Then call the `createElement` method.
 
 ``` js
 new createElement({
-        element: 'a', // Create element tag || <div></div>
-        id: 'id-name', // Define ID name || <div id="id-name"></div>
-        class: 'lass-name', // Define class name || <div class="class-name"></div>
-        text: 'Your text will be here' // Define your text here || <div id="parent" class="parent"> Your text will be here </div>
+        element: 'a', // Create element tag || <a></a>
+        id: 'id-name', // Define ID name || <a id="id-name"></a>
+        class: 'lass-name', // Define class name || <a class="class-name"></a>
+        text: 'Your text will be here' // Define your text here || <a id="parent" class="parent"> Your text will be here </a>
         parent: #parent-name // Define parent if it is exist and provide parent ID or Class with the selector name
-        attr: {
-            title: 'Your title will be here' // Define attributes with the keys and values
+        attr: { // <a id="parent" class="parent" title="Your title will be here" target="_blank"> Your text will be here </a>
+            href: 'http://www.google.com' // Define attributes with the keys and values
             target: '_blank',
             title: 'This is link'
         },
