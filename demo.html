@@ -7,40 +7,39 @@
 <body>
 <script src="dist/create.element-1.1.js"></script>
 <script>
-    /*new createElement({
+    new createElement({
         element: 'div',
-        id: 'parent',
-        text: 'Div with ID'
+        id: 'div-id',
+        text: 'Your text will be here'
+    });
+    new createElement({
+        element: 'div',
+        class: 'divClass',
+        text: 'Your text will be here'
     });
     new createElement({
         element: 'div',
         class: 'child',
-        text: 'Child',
+        text: 'Your text will be here',
         parent: '#parent'
     });
-    new createElement({
-        element: 'span',
-        class: 'child',
-        text: 'Child',
-        parent: '#parent'
-    });*/
     new createElement({
         element: 'a',
-        class: 'link',
+        id: 'link-id',
+        class: 'link-class',
         text: 'click here',
-        /*attr: {
+        attr: {
             href: 'http://www.google.com',
             target: '_blank',
             title: 'This is link'
-        },*/
+        },
         events: {
-            click: clickMe
+            click: function(e) {
+                e.preventDefault();
+            }
         }
     });
     
-    function clickMe() {
-      console.log('click me :)');
-    }
     
 </script>
 </body>
