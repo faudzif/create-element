@@ -30,6 +30,11 @@ new createElement({
         parent: .parent // Define parent if it is exist and provide parent ID or Class with selector name
         attr: {
             title: 'Your title will be here' // Define attributes with key and value
+        },
+        events: {
+            click: function(e) {
+                // write you function here
+            }
         }
     });
 ```

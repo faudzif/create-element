@@ -3,7 +3,6 @@
  * https://github.com/faudzif/create-element
  * Copyright (c) 2018 Faudzif
  */
-
 (function () {
     this.createElement = function () {
         if (arguments[0] && typeof arguments[0] === 'object') {
@@ -14,51 +13,50 @@
     };
 
     function elementOptions(options) {
-        if (options.hasOwnProperty('element')) {
-            if (options.element !== '') {
-                var element = document.createElement(options.element);
-                if (options.hasOwnProperty('id')) {
-                    element.setAttribute('id', options.id);
-                }
-                if (options.hasOwnProperty('class')) {
-                    element.setAttribute('class', options.class);
-                }
-                if (options.hasOwnProperty('text')) {
-                    var textNode = document.createTextNode(options.text);
-                    element.appendChild(textNode);
-                }
-                if (options.hasOwnProperty('attr')) {
-                    setAttributes(element, options.attr);
-                }
-                if (options.hasOwnProperty('events')) {
-                    addEventsOnElement(element, options.events)
-                }
-                if (options.hasOwnProperty('parent')) {
-                    addElementIntoParent(element, options);
-                } else {
-                    document.body.appendChild(element);
-                }
+        if (options.hasOwnProperty('element') && options.element !== '') {
+            var element = document.createElement(options.element),
+            elemParentExist = true;
+            if (options.hasOwnProperty('id')) {
+                element.setAttribute('id', options.id);
+            }
+            if (options.hasOwnProperty('class')) {
+                element.setAttribute('class', options.class);
+            }
+            if (options.hasOwnProperty('text')) {
+                var textNode = document.createTextNode(options.text);
+                element.appendChild(textNode);
+            }
+            if (options.hasOwnProperty('attr')) {
+                setAttributes(element, options.attr);
+            }
+            if (options.hasOwnProperty('events')) {
+                addEventsOnElement(element, options.events)
+            }
+            if (options.hasOwnProperty('parent') && elemParentExist) {
+                addElementIntoParent(element, options);
+            } else {
+                document.body.appendChild(element);
             }
         } else {
-            console.log('Create element tag at lest');
+            console.log('Create element tag it should not be empty');
         }
     }
 
     function addElementIntoParent(element, options) {
+        var parentElem;
         if (parentCharacterCheck(options.parent)) {
-            console.log(true + ' : ' + options.parent);
             parentElem = document.getElementsByTagName(options.parent)[0];
-            (parentElem !== undefined) ? parentElem.appendChild(element) : console.log((options.id === undefined ? options.class : options.id) + '\'s Parent is not Exist!');
+            (parentElem !== undefined) ? parentElem.appendChild(element) : console.log((options.id === undefined ? options.class : options.id) + '\'s parent is not exist!');
         } else {
-            var parentElem,
-                IdOrClassText = options.parent.substring(1, options.parent.length),
+            var IdOrClassText = options.parent.substring(1, options.parent.length),
                 IdOrClassCheck = options.parent[0];
             if (IdOrClassCheck === '#') {
                 parentElem = document.getElementById(IdOrClassText);
-                (parentElem !== null) ? parentElem.appendChild(element) : console.log((options.id === undefined ? options.class : options.id) + '\'s Parent is not Exist!');
+                (parentElem !== null) ? parentElem.appendChild(element) : console.log((options.id === undefined ? options.class : options.id) + '\'s parent is not exist!');
+                isParentExist( options.parent )
             } else if (IdOrClassCheck === '.') {
                 parentElem = document.getElementsByClassName(IdOrClassText)[0];
-                (parentElem !== undefined) ? parentElem.appendChild(element) : console.log((options.id === undefined ? options.class : options.id) + '\'s Parent is not Exist!');
+                (parentElem !== undefined) ? parentElem.appendChild(element) : console.log((options.id === undefined ? options.class : options.id) + '\'s parent is not exist!');
             }
         }
     }
@@ -70,14 +68,17 @@
 
     function setAttributes(elem, attr) {
         for (var key in attr) {
+            if (attr.hasOwnProperty(key))
             elem.setAttribute(key, attr[key]);
         }
     }
 
     function addEventsOnElement(elem, e) {
-        elem.addEventListener(Object.keys(e)[0], function () {
-            var x = Object.values(e)[0];
-            x();
-        }, false);
+        for (var key in e) {
+            if (e.hasOwnProperty(key)) {
+                var functionValue = e[key];
+                elem.addEventListener(key, functionValue, false);
+            }
+        }
     }
 }());
