@@ -13,8 +13,8 @@ Include the script plugin on a page. Then call the `createElement` method.
 <script>
     new createElement({
         element: 'div',
-        id: 'parent',
-        text: 'Div with ID'
+        id: 'id-name',
+        text: 'Your text will be here'
     });
 </script>
 ```
