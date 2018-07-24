@@ -31,7 +31,7 @@ new createElement({
         attr: {
             title: 'Your title will be here' // Define attributes with key and value
         },
-        events: {
+        events: { // You can add events here as well define your event in place of key and value will be function
             click: function(e) {
                 // write you function here
             }
