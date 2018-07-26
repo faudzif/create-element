@@ -53,7 +53,6 @@
             if (IdOrClassCheck === '#') {
                 parentElem = document.getElementById(IdOrClassText);
                 (parentElem !== null) ? parentElem.appendChild(element) : console.log((options.id === undefined ? options.class : options.id) + '\'s parent is not exist!');
-                isParentExist( options.parent )
             } else if (IdOrClassCheck === '.') {
                 parentElem = document.getElementsByClassName(IdOrClassText)[0];
                 (parentElem !== undefined) ? parentElem.appendChild(element) : console.log((options.id === undefined ? options.class : options.id) + '\'s parent is not exist!');
