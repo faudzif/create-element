@@ -15,7 +15,7 @@
     function elementOptions(options) {
         if (options.hasOwnProperty('element') && options.element !== '') {
             var element = document.createElement(options.element),
-            elemParentExist = true;
+                elemParentExist = true;
             if (options.hasOwnProperty('id')) {
                 element.setAttribute('id', options.id);
             }
@@ -35,7 +35,7 @@
             if (options.hasOwnProperty('parent') && elemParentExist) {
                 addElementIntoParent(element, options);
             } else {
-                document.body.appendChild(element);
+                document.body.insertBefore(element, document.body.childNodes[0]);
             }
         } else {
             console.log('Create element tag it should not be empty');
@@ -68,7 +68,7 @@
     function setAttributes(elem, attr) {
         for (var key in attr) {
             if (attr.hasOwnProperty(key))
-            elem.setAttribute(key, attr[key]);
+                elem.setAttribute(key, attr[key]);
         }
     }
 
